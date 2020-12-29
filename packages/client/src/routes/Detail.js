@@ -49,11 +49,13 @@ const Loading = styled.div`
 const GET_MOVIE = gql`
   query getMovie($id: Int!) {
     movie(id: $id) {
+      id
       title
       medium_cover_image
       language
       rating
       description_intro
+      isLiked @client
     }
     suggestions(id: $id) {
       id
@@ -76,6 +78,7 @@ function Detail() {
     );
   }
 
+  console.log(data.movie);
   return (
     <Container>
       <Column>

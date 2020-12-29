@@ -26,7 +26,7 @@ const LIKE_MOVIE = gql`
 `;
 
 function Movie({ id, bg, isLiked }) {
-  const [toggleMovie] = useMutation(LIKE_MOVIE, {
+  const [toggleLikeMovie] = useMutation(LIKE_MOVIE, {
     variables: { id: parseInt(id), isLiked },
   });
 
@@ -35,7 +35,7 @@ function Movie({ id, bg, isLiked }) {
       <Link to={`/${id}`}>
         <Poster bg={bg} />
       </Link>
-      <button onClick={toggleMovie}>{isLiked ? 'Unlike' : 'Like'}</button>
+      <button onClick={toggleLikeMovie}>{isLiked ? 'Unlike' : 'Like'}</button>
     </Container>
   );
 }
